@@ -1,5 +1,6 @@
-f2= open("result1.txt","w+")
-f=open("C:/Users/Shizuka/Hashcode2020/b_read_on.txt", "r")
+import sys
+sys.stdout = open("C:/Users/Shizuka/Hashcode2020/result2.txt", "w")
+f=open("C:/Users/Shizuka/Hashcode2020/c_incunabula.txt", "r")
 f1 = f.readlines()
 libraries_param = []
 libraries_books = []
@@ -24,18 +25,16 @@ while(s<D and i<len(lib_sign_up)):
     i+=1
 nb_libraries = i
 print(nb_libraries)
-
 accumulator = 0
 for i in range(nb_libraries-1):
     lib_id = lib_array[i][0]
     accumulator += lib_array[i][1]
-    f.write(str(lib_id) + " " + str(min(D-accumulator,len(libraries_books[lib_id]))))
+    print(str(lib_id) + " " + str(min(D-accumulator,len(libraries_books[lib_id]))))
     j = 0 
     while (j<D-accumulator and j<len(libraries_books[lib_id])):
-        f.write(libraries_books[lib_id][j], end=" ")
+        if (j == D-accumulator - 1 or j == len(libraries_books[lib_id])-1):
+            print(libraries_books[lib_id][j])
+        else : 
+            print(libraries_books[lib_id][j], end=" ")
         j+=1
-    if (i!=nb_libraries - 1):
-        f.write("")
-    
-
 
