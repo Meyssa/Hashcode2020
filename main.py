@@ -1,6 +1,6 @@
 import sys
-sys.stdout = open("C:/Users/Shizuka/Hashcode2020/result2.txt", "w")
-f=open("C:/Users/Shizuka/Hashcode2020/c_incunabula.txt", "r")
+sys.stdout = open("C:/Users/Shizuka/Hashcode2020/result3.txt", "w")
+f=open("C:/Users/Shizuka/Hashcode2020/d_tough_choices.txt", "r")
 f1 = f.readlines()
 libraries_param = []
 libraries_books = []
@@ -14,8 +14,8 @@ while(i<len(f1)-1):
     i+=2
 lib_sign_up = []
 for i in range (L):
-    lib_sign_up.append((i,libraries_param[i][1]))
-lib_sign_up= sorted(lib_sign_up, key=lambda x: x[1])
+    lib_sign_up.append((i,libraries_param[i][0]))
+lib_sign_up= sorted(lib_sign_up, key=lambda x: x[1],reverse=True)
 s = 0
 i = 0
 lib_array = []
@@ -24,7 +24,7 @@ while(s<D and i<len(lib_sign_up)):
     lib_array.append(lib_sign_up[i])
     i+=1
 nb_libraries = i
-print(nb_libraries)
+print(nb_libraries-1)
 accumulator = 0
 for i in range(nb_libraries-1):
     lib_id = lib_array[i][0]
